@@ -1,0 +1,1 @@
+export type BaseInputProps = React.ComponentPropsWithRef<"input">;

@@ -6,20 +6,31 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typegen": "./sanity-typegen.sh"
   },
   "dependencies": {
+    "@remixicon/react": "^4.6.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/ui": "^2.16.7",
+    "@sanity/vision": "^3.99.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.6",
+    "next": "15.4.1",
+    "next-sanity": "^9.12.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.4.1"
+    "react-error-boundary": "^6.0.0",
+    "sanity": "^3.99.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.1",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }
