@@ -1,0 +1,93 @@
+@layer components {
+    button[role="switch"] {
+        --button-bg-color: transparent;
+        --button-border-color: var(--color-dark);
+        --button-border-radius: 8px;
+        --button-outline-color: var(--color-neutral-400);
+        --button-shadow: var(--shadow-dual);
+        --button-padding: 0.1em 0.5em;
+        --switch-width: clamp(2.5rem, 3rem, 4rem);
+        --switch-height: calc(var(--switch-width) / 2);
+        display: flex;
+        align-items: center;
+        gap: 0.25em;
+
+        height: calc(var(--switch-height) + 0.5em);
+        width: fit-content;
+        border-width: 1px;
+        transition: box-shadow 400ms ease-in-out;
+
+        &.switch__only {
+            --button-padding: 0;
+            --button-border-color: transparent;
+            --button-shadow: 0;
+            --button-border-radius: 100vh;
+            height: calc(var(--switch-width) / 2);
+        }
+
+        & .on-off-label {
+            display: inline-block;
+            text-align: center;
+            width: 3.5ch;
+        }
+
+        & .switch {
+            --_switch-bg-color: var(--switch-bg-color, transparent);
+            --_switch-border-color: var(--switch-border-color, var(--button-color));
+
+            box-sizing: content-box;
+            display: inline-block;
+            position: relative;
+            width: var(--switch-width);
+            height: var(--switch-height);
+            border-radius: 100vh;
+            background-color: var(--_switch-bg-color);
+            border: 1px solid var(--_switch-border-color);
+            box-shadow: var(--switch-shadow);
+
+            &::before {
+                content: "";
+                position: absolute;
+                box-sizing: border-box;
+                top: 2.5%;
+                left: 1%;
+                width: calc(var(--switch-height) * 0.95);
+                aspect-ratio: 1;
+                border: 2px groove var(--_switch-border-color);
+                border-radius: 100%;
+                background-color: transparent;
+                will-change: left, transform, background-color;
+                transition:
+                    transform 350ms cubic-bezier(0.25, 1, 0.25, 1),
+                    background-color 450ms ease-in-out,
+                    border 250ms ease-in-out,
+                    left 400ms cubic-bezier(0.5, -0.5, 0.25, 1.5) 100ms;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                &::before {
+                    transition: none !important;
+                    animation: none !important;
+                }
+            }
+
+            &:hover {
+                --switch-shadow: var(--shadow-inset-sm);
+            }
+
+            &[data-checked="true"]:hover {
+                --switch-shadow: 1px 1px 2px var(--color-neutral-300);
+            }
+        }
+
+        &[data-checked="true"] .switch::before {
+            transform: rotate(180deg);
+            left: 51%;
+        }
+
+        &:focus-visible .switch::before,
+        &:hover .switch::before {
+            border-width: 3px;
+        }
+    }
+}

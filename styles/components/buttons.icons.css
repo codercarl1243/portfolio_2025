@@ -1,0 +1,8 @@
+@layer components {
+    .iconButton {
+        text-align: center;
+        & svg {
+            margin: 0 auto;
+        }
+    }
+}

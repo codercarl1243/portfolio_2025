@@ -1,0 +1,35 @@
+@layer tokens {
+    :root {
+
+        
+        /* Small text: minimum 14px, scales up to ~16px */
+        --font-size-sm: clamp(0.875rem, 0.875rem + 0.3vw, 1rem);
+
+        /* Base font size: min 16px, max ~20px */
+        --font-size-base: clamp(1rem, 1rem + 0.5vw, 1.25rem);
+
+        /* Large: min 20px, max ~28px */
+        --font-size-lg: clamp(1.25rem, 1.25rem + 1vw, 1.75rem);
+
+        /* XL: headings min 24px, max ~40px*/
+        --font-size-xl: clamp(1.5rem, 1.5rem + 1.5vw, 2.5rem);
+
+        /* 2XL: for hero text etc. min 32px, max ~56px */
+        --font-size-2xl: clamp(2rem, 2rem + 2vw, 3.5rem);
+
+        /* Font Weights */
+        --font-weight-light: 300;
+        --font-weight-normal: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+
+        /* Line Heights */
+        --line-height-none: 1;
+        --line-height-tight: 1.25;
+        --line-height-snug: 1.375;
+        --line-height-normal: 1.5;
+        --line-height-relaxed: 1.625;
+        --line-height-loose: 2;
+    }
+}

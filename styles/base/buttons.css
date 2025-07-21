@@ -1,0 +1,117 @@
+@layer base {
+    .button {
+        --button-color: currentColor;
+        --button-bg-color: transparent;
+        --button-border-color: currentColor;
+        --button-border: 1px solid var(--button-border-color);
+        --button-border-radius: 0;
+        --button-font-size: 1rem;
+        --button-line-height: 1.25;
+        --button-margin-y: 8px;
+        --button-margin-x: 8px;
+        --button-margin: var(--button-margin-y) var(--button-margin-x);
+        --button-padding-y: 0;
+        --button-padding-x: 0;
+        --button-padding: var(--button-padding-y) var(--button-padding-x);
+        --button-opacity: 1;
+        --button-outline: 0;
+        --button-outline-color: var(--button-border-color);
+        --button-outline-offset: 0;
+        --button-shadow: none;
+        --button-transitions: none;
+        /* 
+            https://www.wcag.com/developers/2-5-8-target-size-minimum-level-aa/ 
+            AA: All interactive targets should take up at least 24px*24px of space. 
+            AAA: 44px*44px
+        */
+        min-height: 44px;
+        min-width: 44px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: none;
+        background-color: var(--button-bg-color);
+        color: var(--button-color);
+        opacity: var(--button-opacity);
+
+        /* font and font styling */
+        font: inherit;
+        font-size: var(--button-font-size);
+        line-height: var(--button-line-height);
+        text-align: inherit;
+        vertical-align: middle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        /* 👇👇 per project preferences 👇👇 */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* 👆👆 per project preferences 👆👆 */
+
+        /* borders and outlines */
+        border: var(--button-border);
+        border-color: var(--button-border-color);
+        border-radius: var(--button-border-radius);
+        box-shadow: var(--button-shadow);
+        outline: var(--button-outline);
+        outline-color: var(--button-outline-color);
+        outline-offset: var(--button-outline-offset);
+
+        /* padding and margins */
+        /* 
+            Added margin around button for users with motor function challenges such as hand tremors, arthritis, low dexterity, or just using the device with 1 hand.
+            8px (≈ 2mm) of margin is considered a minimum.
+            12px (≈ 3mm) of margin is often recommended for comfortable touch and click precision.
+            16px (≈ 4mm) is ideal for larger spacing when the design allows.
+        */
+        margin: var(--button-margin);
+        padding: var(--button-padding);
+
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            outline 0.2s ease,
+            var(--button-transitions);
+
+        &:hover {
+            --button-outline: 1px solid currentColor;
+        }
+
+        &:focus-visible {
+            --button-outline: 1px solid currentColor;
+            --button-outline-offset: 1px;
+        }
+
+        &:active {
+            --button-outline: 1px dotted currentColor;
+            --button-outline-offset: 1px;
+        }
+
+        /* 
+            disabled is a state not found on every other element
+            so this wont bleed into links with button styling
+        */
+        &:disabled {
+            cursor: not-allowed;
+            --button-opacity: 0.5;
+        }
+    }
+
+    /* touch screens without a mouse etc. might need larger margins */
+    @media screen and (any-pointer: coarse) {
+        .button {
+            --button-margin-y: 12px;
+            --button-margin-x: 12px;
+        }
+    }
+
+    button {
+        /* 
+            dont add cursor: pointer to the button class.
+            we might style other non-interactive elements to look
+            like buttons/ boxes but we dont want to suggest interactivity
+        */
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,12 @@
+@layer tokens {
+    :root {
+        /* Box Shadows */
+        --shadow-sm: 0 1px 2px var(--color-neutral-100);
+        --shadow-md: 0 2px 4px  var(--color-neutral-200);
+        --shadow-lg: 0 4px 8px  var(--color-neutral-300);
+        --shadow-inset-sm: inset -1px 0 2px 1px var(--color-neutral-400);
+        --shadow-inset-lg: inset 2px 0 4px 2px var(--color-neutral-400);
+        --shadow-dual: inset 1px 0 2px 1px var(--color-neutral-400), 0 0px 4px 0.25px var(--color-neutral-100);
+        --shadow-dual-strong: inset 1px 0 2px 1px var(--color-neutral-400), 0 0px 6px 1px var(--color-neutral-100);
+    }
+}

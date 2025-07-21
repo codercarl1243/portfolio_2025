@@ -1,6 +1,7 @@
 import NextLink from "next/link"
 import { LinkProps } from "./link.type";
 import useLink from "./useLink";
+import Icon from "../icon";
 
 
 
@@ -22,7 +23,7 @@ export default function Link({ children, href = "/#", variant = 'internal', ...p
         )
     }
 
-    const Icon = getIcon(variant)
+    const icon = getIcon(variant)
 
     return (
         <a
@@ -32,7 +33,7 @@ export default function Link({ children, href = "/#", variant = 'internal', ...p
             data-variant={variant}
         >
             {children}
-             {Icon && <Icon />}
+             {icon && <Icon icon={icon}/>}
         </a>
     )
 }
