@@ -1,0 +1,34 @@
+@layer utilities {
+
+    .font-weight-light {
+        font-weight: var(--font-weight-light);
+    }
+
+    .font-weight-bold {
+        font-weight: var(--font-weight-bold);
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .font-sm {
+        font-size: var(--font-size-sm);
+    }
+
+    .font-base {
+        font-size: var(--font-size-base);
+    }
+
+    .font-lg {
+        font-size: var(--font-size-lg);
+    }
+
+    .font-xl {
+        font-size: var(--font-size-xl);
+    }
+
+    .font-2xl {
+        font-size: var(--font-size-2xl);
+    }
+}

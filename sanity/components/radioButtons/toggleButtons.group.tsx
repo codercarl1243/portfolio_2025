@@ -38,7 +38,7 @@ export default function ToggleButtonGroup(props: StringInputProps) {
 
     return (
         <Card>
-            <fieldset id={props.id}>
+            <fieldset id={props.id} className="p-0 border-none">
                 {props.schemaType.title && (
                     <legend id={labelId} className="font-weight-bold font-lg">
                         {props.schemaType.title}

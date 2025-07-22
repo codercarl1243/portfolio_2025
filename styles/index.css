@@ -6,4 +6,4 @@
 @import "./tokens/index.css";
 @import "./base/index.css";
 @import "./components/index.css";
-/* @import "@/styles/utilities"; */
+@import "./utilities/index.css";
