@@ -1,7 +1,7 @@
 import { SanityReference } from "@sanity/image-url/lib/types/types";
 import { ObjectInputProps } from "sanity";
-import RenderMemberField from "./fields/RenderMemberField";
-import { getFieldMember } from "./fields/lib";
+import RenderMemberField from "./memberFields/RenderMemberField";
+import { getFieldMember } from "./memberFields/lib";
 import Image, { FallbackImage } from '@/components/image';
 import { valueProps } from "@/components/image/image.type";
 import { useCallback, useState } from "react";
