@@ -1,5 +1,6 @@
 import { defineArrayMember, defineField } from "sanity";
-import { imageType } from "../image.schema"
+import ToggleButtonGroup from "@/sanity/components/radioButtons/toggleButtons.group";
+import FieldComponentWithNoLabelOrDescription from "@/sanity/components/field";
 
 export const types = [
     defineArrayMember(
@@ -21,17 +22,22 @@ export const types = [
                     type: 'string',
                     title: 'image Size',
                     options: {
-                        list: [
-                            { title: 'Normal', value: 'normal' },
-                            { title: 'Hero', value: 'hero' },
-                            { title: 'Banner', value: 'banner' },
-                            { title: 'Figure', value: 'figure' },
-                        ],
-                        // Create a plugin for horizontal radio buttons / grid
+                        list: ['normal','hero','banner','figure'],
                         layout: 'radio',
                     },
+                    description: 'Set to "Figure" to enable image captions. Locked when caption text is present.',
+                    readOnly: ({parent}) => parent?.variant === 'figure' && Boolean(parent?.caption?.trim()),
                     initialValue: 'normal',
+                    components: {
+                        field: FieldComponentWithNoLabelOrDescription,
+                        input: ToggleButtonGroup
+                    }
                 }),
+                defineField({
+                    name: 'caption',
+                    type: 'string',
+                    hidden: ({ parent }) => parent?.variant !== 'figure'
+                })
             ]
         },
     )
