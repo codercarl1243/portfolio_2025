@@ -10,14 +10,14 @@ import LinkComponent from '@/components//link';
 
 
 // Blocks
-export const H1 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className="font-accent font-bold text-3xl">{children}</h1>;
-export const H2 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className="font-accent font-bold text-2xl">{children}</h2>;
-export const H3 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h3 className="font-accent font-bold text-xl">{children}</h3>;
-export const H4 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h4 className="font-accent font-bold text-base">{children}</h4>;
+export const H1 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className="font-accent font-weight-bold text-3xl">{children}</h1>;
+export const H2 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className="font-accent font-weight-bold text-2xl">{children}</h2>;
+export const H3 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h3 className="font-accent font-weight-bold text-xl">{children}</h3>;
+export const H4 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h4 className="font-accent font-weight-bold text-base">{children}</h4>;
 export const P = ({ children }: React.HTMLAttributes<HTMLParagraphElement>) => <p className="font-main text-base">{children}</p>;
 export const Blockquote = ({ children }: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => <blockquote className="border-l-4 pl-4 font-main italic">{children}</blockquote>;
 // Marks
-export const Bold = ({ children }: { children: React.ReactNode }) => <span className="font-bold">{children}</span>;
+export const Bold = ({ children }: { children: React.ReactNode }) => <span className="font-weight-bold">{children}</span>;
 export const Italic = ({ children }: { children: React.ReactNode }) => <span className="italic">{children}</span>;
 export const Underline = ({ children }: { children: React.ReactNode }) => <span className="underline">{children}</span>;
 
