@@ -99,10 +99,9 @@ export default function useRenderMemberField(member: MemberFieldProps['member'])
         id: string | undefined
     ) => {
         if (!string.length || !id) return null
-
         return (
             <AnimatePresence mode="wait">
-                <MessageCard key={id + 'info'} id={id} level={'info'} message={informationString} />
+                <MessageCard key={id + 'info'} id={id} level={'info'} message={string} />
             </AnimatePresence>
         )
     }
