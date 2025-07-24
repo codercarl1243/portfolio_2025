@@ -10,8 +10,8 @@
         --button-margin-y: 8px;
         --button-margin-x: 8px;
         --button-margin: var(--button-margin-y) var(--button-margin-x);
-        --button-padding-y: 0;
-        --button-padding-x: 0;
+        --button-padding-y: var(--space-1);
+        --button-padding-x: var(--space-2);
         --button-padding: var(--button-padding-y) var(--button-padding-x);
         --button-opacity: 1;
         --button-outline: 0;

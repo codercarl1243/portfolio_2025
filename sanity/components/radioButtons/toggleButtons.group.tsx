@@ -1,12 +1,10 @@
 import { ToggleButton } from "@/components/button"
 import { Card } from "@sanity/ui"
-import { OptionsList } from "./radioButtons.type";
 import { PatchEvent, set, StringInputProps } from "sanity";
 import { hasOptionsList } from "./guards";
-import { useId, useMemo, useState } from "react";
-import { Italic } from "@/components";
+import { useId, useMemo } from "react";
 
-export default function ToggleButtonGroup(props: StringInputProps) {
+export default function ImageSizeToggleGroup(props: StringInputProps) {
 
     if (!hasOptionsList(props)) {
         return props.renderDefault(props);
@@ -20,7 +18,9 @@ export default function ToggleButtonGroup(props: StringInputProps) {
         , [props.schemaType.options.list]);
 
     function handleChange(value: string) {
-        props.onChange(PatchEvent.from(set(value)));
+        if (props.value !== value ) {
+            props.onChange(PatchEvent.from(set(value)));
+        }
     }
 
 
@@ -30,6 +30,7 @@ export default function ToggleButtonGroup(props: StringInputProps) {
                 key={value + index}
                 onClick={() => handleChange(value)}
                 toggled={props.value === value}
+                disabled={props.value === value || props.readOnly}
             >
                 {value}
             </ToggleButton>
@@ -40,7 +41,7 @@ export default function ToggleButtonGroup(props: StringInputProps) {
         <Card>
             <fieldset id={props.id} className="p-0 border-none">
                 {props.schemaType.title && (
-                    <legend id={labelId} className="font-weight-bold font-lg">
+                    <legend id={labelId} className="font-weight-bold">
                         {props.schemaType.title}
                     </legend>
                 )}

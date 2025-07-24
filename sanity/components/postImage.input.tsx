@@ -13,9 +13,9 @@ type value = {
     asset?: SanityReference;
     alt: string | undefined;
 }
-type props = ObjectInputProps<value>
+type ExpandedObjectInputProps = ObjectInputProps<value>
 
-export default function PostImageInput(props: props) {
+export default function PostImageInput(props: ExpandedObjectInputProps) {
     const { value, members, renderField, renderInput, renderItem, renderPreview } = props;
     const [dialogIsOpen, setDialogIsOpen] = useState(false);
     const onClose = useCallback(() => setDialogIsOpen(false), [])

@@ -31,4 +31,20 @@
     .font-2xl {
         font-size: var(--font-size-2xl);
     }
+
+    .line-height-snug {
+        line-height: var(--line-height-snug);
+    }
+
+    .line-height-base {
+        line-height: var(--line-height-normal);
+    }
+
+    .line-height-loose {
+        line-height: var(--line-height-loose);
+    }
+
+    .whitespace-pre {
+        white-space: pre;
+    }
 }

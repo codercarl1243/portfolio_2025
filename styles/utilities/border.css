@@ -43,11 +43,11 @@
 
   /* === Border colors === */
   .border-muted {
-    border-color: var(--border-color-muted);
+    border-color: var(--color-muted);
   }
 
   .border-focus {
-    border-color: var(--border-color-focus);
+    border-color: var(--color-focus);
   }
 
   .border-inherit {

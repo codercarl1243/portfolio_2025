@@ -16,7 +16,7 @@
         --color-accent-700: hsl(31, 100%, 32%);
 
         /* Light and Dark */
-        --color-light: hsl(0, 0%, 95%);
+        --color-light: hsl(0, 0%, 98%);
         --color-light-40: hsl(0, 0%, 95%, 0.4);
         --color-dark: #262626;
         --color-dark-40: hsla(0, 0%, 15%, 0.4);
@@ -30,6 +30,10 @@
 
         --background: var(--color-light);
         --foreground: var(--color-dark);
+
+        --color-border: var(--foreground);
+        --color-muted: var(--color-neutral-400);
+        --color-focus: var(--color-primary-400);
     }
 
     @media (prefers-color-scheme: dark) {
