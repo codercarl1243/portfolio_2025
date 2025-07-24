@@ -1,5 +1,5 @@
 'use client'
-import { forwardRef, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { ToggleButtonProps } from "./Button.type";
 import Button from ".";
 import clsx from "clsx";
@@ -31,6 +31,8 @@ export default function ToggleButton({
             ref={ref}
             onClick={handleClick}
             aria-pressed={isToggled}
+            data-pressed={isToggled}
+
             {...props}
         >
             {children ?
