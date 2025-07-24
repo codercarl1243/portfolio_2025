@@ -1,5 +1,4 @@
 import { ToggleButton } from "@/components/button"
-import { Card } from "@sanity/ui"
 import { PatchEvent, set, StringInputProps } from "sanity";
 import { hasOptionsList } from "./guards";
 import { useId, useMemo } from "react";
@@ -38,16 +37,14 @@ export default function ImageSizeToggleGroup(props: StringInputProps) {
     }
 
     return (
-        <Card>
-            <fieldset id={props.id} className="p-0 border-none">
+            <fieldset id={props.id} className="p-0 m-0 border-none">
                 {props.schemaType.title && (
-                    <legend id={labelId} className="font-weight-bold">
+                    <legend id={labelId} className="memberfield__field--label">
                         {props.schemaType.title}
                     </legend>
                 )}
-                <p className="font-weight-light italic">{props.schemaType.description}</p>
+                <p className="memberfield__field--description">{props.schemaType.description}</p>
                 <ToggleButtonList />
             </fieldset>
-        </Card>
     )
 }

@@ -1,7 +1,5 @@
 import { defineField, defineType, StringInput } from 'sanity'
 import { RiImageAddLine } from "@remixicon/react";
-import PostImagePreview from '../components/postImage.preview';
-
 
 export const imageType = defineType({
     name: 'CustomImage',
@@ -11,9 +9,6 @@ export const imageType = defineType({
     options: {
         hotspot: true,
         modal: {type: "dialog"}
-    },
-    components: {
-        preview: PostImagePreview
     },
     fields: [
         defineField({
