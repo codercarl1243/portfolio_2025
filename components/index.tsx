@@ -7,15 +7,16 @@ import { TImageProps } from '@/components/image/image.type';
 import ImageComponent from '@/components/image';
 import { LinkProps } from '@/components/link/link.type';
 import LinkComponent from '@/components//link';
+import clsx from 'clsx';
 
 
 // Blocks
-export const H1 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className="font-accent font-weight-bold text-3xl">{children}</h1>;
-export const H2 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className="font-accent font-weight-bold text-2xl">{children}</h2>;
-export const H3 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h3 className="font-accent font-weight-bold text-xl">{children}</h3>;
-export const H4 = ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => <h4 className="font-accent font-weight-bold text-base">{children}</h4>;
-export const P = ({ children }: React.HTMLAttributes<HTMLParagraphElement>) => <p className="font-main text-base">{children}</p>;
-export const Blockquote = ({ children }: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => <blockquote className="border-l-4 pl-4 font-main italic">{children}</blockquote>;
+export const H1 = ({ children, className }: React.HTMLAttributes<HTMLHeadingElement>) => <h1 className={clsx("font-accent font-weight-bold font-2xl", className)}>{children}</h1>;
+export const H2 = ({ children, className }: React.HTMLAttributes<HTMLHeadingElement>) => <h2 className={clsx("font-accent font-weight-bold font-xl", className)}>{children}</h2>;
+export const H3 = ({ children, className }: React.HTMLAttributes<HTMLHeadingElement>) => <h3 className={clsx("font-accent font-weight-bold font-lg", className)}>{children}</h3>;
+export const H4 = ({ children, className }: React.HTMLAttributes<HTMLHeadingElement>) => <h4 className={clsx("font-accent font-weight-bold font-base", className)}>{children}</h4>;
+export const P = ({ children, className }: React.HTMLAttributes<HTMLParagraphElement>) => <p className={clsx("font-main text-base", className)}>{children}</p>;
+export const Blockquote = ({ children, className }: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => <blockquote className={clsx("border-l-4 pl-4 font-main italic", className)}>{children}</blockquote>;
 // Marks
 export const Bold = ({ children }: { children: React.ReactNode }) => <span className="font-weight-bold">{children}</span>;
 export const Italic = ({ children }: { children: React.ReactNode }) => <span className="italic">{children}</span>;
