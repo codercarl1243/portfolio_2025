@@ -12,6 +12,7 @@ import { mergeAttributesSafe } from "./lib";
 type RenderMemberFieldProps = {
   informationString?: string;
   showInformationString?: boolean;
+  showFieldLabel?: boolean;
   isLoading?: boolean;
   inputElementProps?: Partial<ComplexElementProps | PrimitiveInputElementProps>;
   isDisabled?: boolean;
@@ -37,6 +38,7 @@ type RenderMemberFieldProps = {
       renderInput={renderInput}
       renderPreview={renderPreview}
       showInformationString={true}
+      showFieldLabel={true}
       informationString="Useful text to display"
       isLoading={isFetching}
       isDisabled={shouldDisable}
@@ -49,6 +51,7 @@ export default function RenderMemberField({
   renderInput,
   renderItem,
   renderPreview,
+  showFieldLabel = true,
   showInformationString,
   informationString = "",
   isLoading = false,
@@ -104,7 +107,7 @@ export default function RenderMemberField({
                 radius={4}
               >
                 <Stack space={1}>
-                  {renderFieldLabel({
+                  {showFieldLabel && renderFieldLabel({
                     schemaType: fieldProps.schemaType,
                     title,
                     inputId: fieldProps.inputId
