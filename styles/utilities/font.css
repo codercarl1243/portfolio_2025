@@ -47,4 +47,12 @@
     .whitespace-pre {
         white-space: pre;
     }
+
+    .font-main {
+        font-family: var(--font-main);
+    }
+
+    .font-accent {
+        font-family: var(--font-accent);
+    }
 }
