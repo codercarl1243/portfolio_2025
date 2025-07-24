@@ -3,12 +3,12 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/index.css";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-main",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-accent",
   subsets: ["latin"],
 });
 
