@@ -123,7 +123,7 @@ export default function useRenderMemberField(member: MemberFieldProps['member'])
     const renderDescription =  useCallback((description: FieldProps["description"]) => {
         if (!description) return null;
 
-        return <p>{description}</p>
+        return <p className='memberfield__field--description'>{description}</p>
     }, [])
 
     /** 
@@ -148,10 +148,10 @@ export default function useRenderMemberField(member: MemberFieldProps['member'])
             // Boolean fields: These typically render as toggle switches or checkboxes with their own labels.
             isBoolean(schemaType)
             || !inputId) {
-            return <p className="text-base font-semibold text-amber-200">{title}</p>
+            return <p className="memberfield__field--label">{title}</p>
         }
 
-        return <label className="text-base font-semibold text-purple-600" htmlFor={inputId}>{title}</label>
+        return <label className="memberfield__field--label" htmlFor={inputId}>{title}</label>
 
     }, [])
 

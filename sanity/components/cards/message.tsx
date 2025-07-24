@@ -1,8 +1,11 @@
 
-import { Card, Flex, Stack, Text } from "@sanity/ui";
+import { Card, Stack } from "@sanity/ui";
 import { AnimatePresence } from 'framer-motion';
 import Slide from "@/components/motionAnimations/slide";
 import useMessageCard, { messageLevelType } from "./useMessage";
+import Icon from "@/components/icon";
+import { P } from "@/components";
+import clsx from "clsx";
 
 type BaseProps = React.ComponentProps<typeof Card> & {
     level?: messageLevelType;
@@ -23,9 +26,8 @@ type MessageCardProps = BaseProps & (MessageOnly | MessagesOnly);
 
 export default function MessageCard({ id, messages, message, level = "error", ...props }: MessageCardProps) {
     if (!messages?.length && !message) return null;
-
     const { getTone, getHeading, getRole, getIcon } = useMessageCard();
-    const Icon = getIcon(level);
+    const icon = getIcon(level);
     const messagesToRender = messages || [];
     return (
         <Card
@@ -39,12 +41,17 @@ export default function MessageCard({ id, messages, message, level = "error", ..
             aria-labelledby={id}
             aria-live={level === "error" ? "assertive" : "polite"}
             overflow="hidden"
+            className="message-card"
             {...props}
         >
-            <Flex align={"flex-start"} gap={2} paddingY={1}>
-                <Icon style={{ height: '1.5rem', width: '1.5rem', marginBlockStart: '2px' }} />
+                <Icon className="message-card__icon" icon={icon} />
                 <Stack space={level === "info" ? 0 : 2}>
-                    <Text id={id} className={level === "info" ? "sr-only" : ""} weight="semibold" size={2} >{getHeading(level)}</Text>
+                    <P 
+                    id={id} 
+                    className={clsx("message-card__heading", level === "info" ? "sr-only" : "")} 
+                    >
+                        {getHeading(level)}
+                    </P>
                     <AnimatePresence
                         initial={false}
                         mode="popLayout"
@@ -54,12 +61,12 @@ export default function MessageCard({ id, messages, message, level = "error", ..
                                 <p>{message}</p>
                             </Slide>
                         ) : (
-                            <ul className="border rounded p-2! border-[var(--card-border-color)]">
+                            <ul className="message-card__list">
                                 {messagesToRender.map(message => (
                                     <Slide key={`message-${message.substring(0, 20)}`}>
                                         <li
                                             style={{ padding: '3px 4px' }}
-                                            className="whitespace-pre text-wrap! max-w-[60ch]"
+                                            className="message-card__list--item"
                                         >
                                             {message}
                                         </li>
@@ -70,7 +77,6 @@ export default function MessageCard({ id, messages, message, level = "error", ..
                         )}
                     </AnimatePresence>
                 </Stack>
-            </Flex>
         </Card>
     )
 }

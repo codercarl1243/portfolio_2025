@@ -1,0 +1,30 @@
+
+
+.message-card {
+    display: flex;
+    align-items: start;
+    gap: var(--space-2);
+    padding-block: var(--space-1);
+
+    & .message-card__icon {
+        height: 1.5rem;
+        aspect-ratio: 1;
+        margin-block-start: 2px;
+    }
+
+    &.message-card__heading {
+        font-weight: var(--font-weight-bold);
+    }
+
+    &.message-card__list {
+        border: var(--border-width) var(--border-style) var(--card-border-color);
+        border-radius: var(--border-radius-md);
+        padding: var(--space-2);
+    }
+
+    &.message-card__list--item {
+        white-space: pre;
+        text-wrap: wrap;
+        max-width: 60ch;
+    }
+}

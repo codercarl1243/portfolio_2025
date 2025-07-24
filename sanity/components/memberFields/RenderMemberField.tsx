@@ -5,9 +5,7 @@ import StatusCard from "@/sanity/components/cards/status";
 import useRenderMemberField from "./useRenderMemberField";
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import { mergeAttributesSafe } from "./lib";
-
-
-
+import clsx from "clsx";
 
 type RenderMemberFieldProps = {
   informationString?: string;
@@ -93,9 +91,8 @@ export default function RenderMemberField({
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <div className={`group/${member.name} ${className}`}>
+      <div className={clsx('memberField', className) }>
         <MemberField
-
           member={member}
           renderField={(fieldProps) => {
             const { title, description, ...restProps } = fieldProps
@@ -105,6 +102,7 @@ export default function RenderMemberField({
                 tone={isDisabled ? "transparent" : "default"}
                 padding={isDisabled ? 1 : 0}
                 radius={4}
+                className="memberfield__field"
               >
                 <Stack space={1}>
                   {showFieldLabel && renderFieldLabel({
@@ -112,9 +110,7 @@ export default function RenderMemberField({
                     title,
                     inputId: fieldProps.inputId
                   })}
-                  <div className={`text-base font-light text-muted-foreground leading-snug whitespace-pre text-gray-500 group-hover/${member.name}:text-black group-focus/${member.name}:text-black group-active/${member.name}:text-black`}>
-                    {renderDescription(description)}
-                  </div>
+                  {renderDescription(description)}
                   {showInformationString && renderInformationString(informationString, informationStringId)}
                   {renderValidationMessages(errorValidationId, 'error')}
                   {renderValidationMessages(warningValidationId, 'warning')}
@@ -145,7 +141,8 @@ export default function RenderMemberField({
                     {
                       readOnly: renderInputProps.readOnly ?? isDisabled,
                       "aria-describedby": ariaDescribedyIds,
-                      "aria-invalid": validationMessages.error.length > 0 ? true : undefined
+                      "aria-invalid": validationMessages.error.length > 0 ? true : undefined,
+                      className: "memberField__input"
                     }, 
                     inputElementProps
                   ),
