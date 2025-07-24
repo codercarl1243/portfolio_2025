@@ -104,7 +104,7 @@ export default function RenderMemberField({
                 radius={4}
                 className="memberfield__field"
               >
-                <Stack space={1}>
+                <Stack space={3}>
                   {showFieldLabel && renderFieldLabel({
                     schemaType: fieldProps.schemaType,
                     title,
